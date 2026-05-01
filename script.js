@@ -8,10 +8,18 @@ const apiURL = 'https://api.lyrics.ovh';
 
 // Search by song or artist
 async function searchSongs(term) {
-  const res = await fetch(`${apiURL}/suggest${term}`);
+  const res = await fetch(`${apiURL}/suggest/${term}`);
   const data = await res.json();
 
   console.log(data);
+
+  showDataSafe(data);
+}
+async function getMoreSongs(url) {
+  const res = await fetch(url);
+  const data = await res.json();
+
+  showDataSafe(data);
 }
 
 // Event listeners
@@ -176,4 +184,12 @@ async function getLyricsSafe(artist, songTitle) {
   });
 
   result.append(span);
+}
+
+// Get more songs (pagination)
+async function getMoreSongs(url) {
+  const res = await fetch(url);
+  const data = await res.json();
+
+  showDataSafe(data);
 }

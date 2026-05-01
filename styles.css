@@ -3,11 +3,13 @@
 }
 
 body {
-  background-color: #821c1c;
+  background-color: #821c1c; /* Your dark red background */
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  color: #fff; /* Added: Ensures default text is readable on red */
 }
 
+/* Button & Input States */
 button {
   cursor: pointer;
 }
@@ -21,18 +23,19 @@ button:focus {
   outline: none;
 }
 
+/* Header Section */
 header {
-  background-image: url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-image: url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  color: #821c1c;
+  /* FIX: Changed color to white so text shows up over the dark image overlay */
+  color: #ffffff; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 100px 0;
-  /* Position this relative so we can position its descendant using absolute */
   position: relative;
 }
 
@@ -43,19 +46,18 @@ header::after {
   left: 0;
   height: 100%;
   width: 100%;
-  /* Adjust this to your preference */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for better text contrast */
 }
 
-/* Select everything in the header */
 header * {
-  /* The higher the z-index the more on top or closer to us */
-  z-index: 1;
+  z-index: 1; /* Keeps text/inputs above the overlay */
 }
 
 header h1 {
   margin: 0 0 30px;
 }
+
+/* Form Styling */
 form {
   position: relative;
   width: 500px;
@@ -68,6 +70,7 @@ form input {
   font-size: 16px;
   padding: 15px 30px;
   width: 100%;
+  color: #333; /* Ensures typed text is dark/readable on the white input */
 }
 
 form button {
@@ -82,7 +85,7 @@ form button {
   padding: 13px 30px;
 }
 
-/* Injecting the btn class via JS */
+/* Results & Containers */
 .btn {
   background-color: #8d56fd;
   border: 0;
@@ -91,7 +94,6 @@ form button {
   padding: 4px 10px;
 }
 
-/* We won't see these styles until we fetch the data from the API */
 ul.songs {
   list-style-type: none;
   padding: 0;
@@ -102,6 +104,9 @@ ul.songs li {
   align-items: center;
   justify-content: space-between;
   margin: 10px 0;
+  background: rgba(255, 255, 255, 0.1); /* Added: slight highlight for each song row */
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .container {
@@ -118,7 +123,6 @@ ul.songs li {
   text-align: center;
 }
 
-/* Previous and Next buttons have a class of centered */
 .centered {
   display: flex;
   justify-content: center;
